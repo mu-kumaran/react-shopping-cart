@@ -1,0 +1,8 @@
+steps:
+-----
+npx create-react-app .
+npm install react-use-cart
+npm install bootstrap
+
+create images folder inside src folder
+put images in that folder
