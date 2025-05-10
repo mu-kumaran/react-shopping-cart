@@ -1,11 +1,14 @@
 import React from 'react'
 import Home from './Home'
+import Cart from './Cart'
+import { CartProvider } from 'react-use-cart'
 
 const App = () => {
   return (
-    <div>
+    <CartProvider>
       <Home/>
-    </div>
+      <Cart/>
+    </CartProvider>
   )
 }
 
