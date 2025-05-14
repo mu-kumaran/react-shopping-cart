@@ -13,13 +13,16 @@ const Cart = () => {
         emptyCart
     } = useCart();
 if(isEmpty) return <h1 className='text-center'>your cart is empty</h1>
-
+function show(amt){
+    console.log("Total amount = ",amt)
+    window.location.href = `http://localhost:9890?amount=${amt}`
+}
   return (
     <>
     <div className='row justify-content-center'>
     <div className='col-6'>
-    <button onClick={()=>emptyCart()}>Empty cart</button>
-    <h5>Cart:({totalUniqueItems}) Total Items:({totalItemsc})</h5>
+    {/* <button onClick={()=>emptyCart()}>Empty cart</button> */}
+    <h5>Cart:({totalUniqueItems}) Total Items:({totalItems})</h5>
     {/* <table border='2' align='center'> */}
     <table className='table table-light table-hover m-4'>
         <tbody>
@@ -27,7 +30,7 @@ if(isEmpty) return <h1 className='text-center'>your cart is empty</h1>
                 items.map((item,index)=>{
                     return(
                         <tr key={index}> 
-                            <td><img src={item.iimg} style={{height:"100px"}}></img></td>
+                            <td><img alt='' src={item.iimg} style={{height:"100px"}}></img></td>
                             <td>{item.id}</td>
                             <td>{item.iname}</td>
                             <td>{item.price}</td>
@@ -42,7 +45,12 @@ if(isEmpty) return <h1 className='text-center'>your cart is empty</h1>
         </tbody>
 
     </table>
+    <h1 className='text-bg-success text-center'>Total Price: ₹ {cartTotal}</h1>
     </div>
+    </div>
+    <div className='col-auto p-2' align="center">
+        <button className='btn btn-danger p-3 m-3' onClick={()=>emptyCart()}>Clear cart</button>
+        <button className='btn btn-success p-3 m-3'onClick={()=>show(cartTotal)}>Pay now</button>
     </div>
     </>
   )
