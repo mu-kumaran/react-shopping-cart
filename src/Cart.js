@@ -15,7 +15,7 @@ const Cart = () => {
 if(isEmpty) return <h1 className='text-center'>your cart is empty</h1>
 function show(amt){
     console.log("Total amount = ",amt)
-    window.location.href = `http://localhost:9890?amount=${amt}`
+    window.location.href = `http://localhost:8000?amount=${amt}`
 }
   return (
     <>
